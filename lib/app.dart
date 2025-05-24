@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:calculator/screens/calculator_screen.dart';
+import 'package:calculator/ui/screens/calculator_screen.dart';
 
 
 class CalculatorApp extends StatelessWidget {
