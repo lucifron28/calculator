@@ -13,3 +13,10 @@ Expression? formatToExpression(String input) {
     return null;
   }
 }
+
+String formatResult(double result) {
+  if (result == result.toInt()) {
+    return result.toInt().toString();
+  }
+  return result.toString();
+}
