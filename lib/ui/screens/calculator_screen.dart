@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:calculator/widgets/display.dart';
 
 class CalculatorScreen extends StatefulWidget {
   const CalculatorScreen({super.key});
@@ -9,18 +9,13 @@ class CalculatorScreen extends StatefulWidget {
 }
 
 class _CalculatorScreenState extends State<CalculatorScreen> {
+  String input = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Calculator'),
-      ),
-      body: const Center(
-        child: Text(
-          'Calculator Screen',
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
+      appBar: AppBar(title: const Text('Calculator')),
+      body: Column(children: [CalculatorDisplay(text: input)]),
     );
   }
 }
