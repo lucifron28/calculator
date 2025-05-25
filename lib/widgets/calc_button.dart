@@ -14,7 +14,11 @@ class CalcButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () => buttonPressed(text),
-      child: Text(text),
+      style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.all(const Color.fromARGB(255, 59, 58, 58)),
+        foregroundColor: WidgetStateProperty.all(Colors.white),
+      ),
+      child: Text(text, style: TextStyle(fontSize: 20),),
     );
   }
 }
