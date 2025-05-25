@@ -8,19 +8,32 @@ class ButtonGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4,
-      ),
-      itemCount: buttons.length,
-      itemBuilder: (context, index) {
-      final label = buttons[index];
-        return Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: CalcButton(buttonPressed: buttonPressed, text: label),
-        );
-      },
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          width: double.infinity,
+          child: GridView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              childAspectRatio: 1,
+              crossAxisCount: 4,
+              mainAxisSpacing: 4,
+              crossAxisSpacing: 4
+              
+            ),
+            itemCount: buttons.length,
+            itemBuilder: (context, index) {
+            final label = buttons[index];
+              return Padding(
+                padding: const EdgeInsets.all(0),
+                child: CalcButton(buttonPressed: buttonPressed, text: label),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }
