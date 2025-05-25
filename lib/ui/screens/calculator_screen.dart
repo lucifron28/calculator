@@ -24,10 +24,16 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Calculator')),
+      backgroundColor: Colors.black,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          CalculatorDisplay(text: calculatorState.display),
-          Expanded(
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: CalculatorDisplay(text: calculatorState.display),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
             child: ButtonGrid(
               buttons: buttons,
               buttonPressed: handleButtonPressed,
