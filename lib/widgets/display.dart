@@ -5,7 +5,7 @@ class CalculatorDisplay extends StatelessWidget {
   final String text;
   const CalculatorDisplay({super.key, required this.text});
 
-  static const double displayHeightFraction = 0.14;
+  static const double displayHeightFraction = 0.20;
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +16,13 @@ class CalculatorDisplay extends StatelessWidget {
         height: MediaQuery.of(context).size.height * displayHeightFraction,
         padding: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
-          border: Border.all(),
+          border: Border.all(color: Colors.white),
         ),
         child: FittedBox(
           alignment: Alignment.centerRight,
           child: Text(
             text,
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: TextStyle(color: Colors.white)
           ),
         ),
       ),
