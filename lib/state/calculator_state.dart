@@ -15,16 +15,20 @@ class CalculatorState {
     }
   }
 
-  void _appendInput(input) {
-    if (display == "0" && !_operators.contains(input)) {
-      display = input;
-    } else if (!_operators.contains(display[display.length - 1]) &&
-        _operators.contains(input)) {
-      display += display.substring(0, display.length - 1) + input;
-    } else {
-      display += input;
-    }
+void _appendInput(String input) {
+  if ((display == "0" && !_operators.contains(input)) || display == "Error") {
+    display = input;
+  } else if (_operators.contains(input)) {
+      if (_operators.contains(display[display.length - 1])) {
+        display = display.substring(0, display.length - 1) + input;
+      } else {
+        display += input;
+      }
+  } else {
+    display += input;
   }
+}
+
 
   void clear() {
     display = "0";
