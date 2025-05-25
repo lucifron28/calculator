@@ -9,7 +9,7 @@ class CalculatorScreen extends StatefulWidget {
 }
 
 class _CalculatorScreenState extends State<CalculatorScreen> {
-  String input = "";
+  String input = "0";
 
   @override
   Widget build(BuildContext context) {
