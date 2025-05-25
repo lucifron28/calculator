@@ -1,4 +1,5 @@
 import 'package:calculator/core/constants.dart';
+import 'package:calculator/widgets/calc_button.dart';
 
 import 'package:flutter/material.dart';
 
@@ -14,8 +15,10 @@ class ButtonGrid extends StatelessWidget {
       ),
       itemCount: buttons.length,
       itemBuilder: (context, index) {
-        final button = buttons[index];
-        return ElevatedButton(onPressed: () {}, child: Text(button));
+        return Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: CalcButton(buttonPressed: () {}, text: buttons[index]),
+        );
       },
     );
   }
