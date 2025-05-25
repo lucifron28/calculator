@@ -2,6 +2,8 @@ import 'package:calculator/core/constants.dart';
 import 'package:calculator/widgets/button_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:calculator/widgets/display.dart';
+import 'package:calculator/state/calculator_state.dart';
+
 class CalculatorScreen extends StatefulWidget {
   const CalculatorScreen({super.key});
 
@@ -10,17 +12,11 @@ class CalculatorScreen extends StatefulWidget {
 }
 
 class _CalculatorScreenState extends State<CalculatorScreen> {
-  String input = "0";
+  final CalculatorState calculatorState = CalculatorState();
 
   void handleButtonPressed(label) {
-    // TODO create my own state class to handle the display
-    // TODO create a checker if the button is non digit and handle the state properly
     setState(() {
-      if (input == "0") {
-        input = label;
-      } else {
-        input += label;
-      }
+      calculatorState.handleInput(label);
     });
   }
 
@@ -30,9 +26,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       appBar: AppBar(title: const Text('Calculator')),
       body: Column(
         children: [
-          CalculatorDisplay(text: input),
+          CalculatorDisplay(text: calculatorState.display),
           Expanded(
-            child: ButtonGrid(buttons: buttons, buttonPressed: handleButtonPressed),
+            child: ButtonGrid(
+              buttons: buttons,
+              buttonPressed: handleButtonPressed,
+            ),
           ),
         ],
       ),
